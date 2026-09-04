@@ -264,6 +264,21 @@ function SectionCard({ section }) {
           <div className={section.id === 'about' ? 'about-copy' : undefined}>
             <h1 id={`section-title-${section.id}`}>{section.title}</h1>
             <p className="section-copy">{section.body}</p>
+            {section.links && (
+              <nav className="resource-links" aria-label="Course resources">
+                {section.links.map((link) => (
+                  <a
+                    className="resource-link"
+                    href={link.href}
+                    key={link.label}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </nav>
+            )}
             {section.embedUrl && (
               <div className="calendar-embed">
                 <iframe
@@ -522,7 +537,7 @@ function App() {
               <img className="enter-key" src={enterKey} alt="Enter" />
               <span className="game-guide-action">Open section</span>
             </div>
-            <p className="game-guide-shortcut">Use the links above for faster navigation</p>
+            <p className="game-guide-shortcut">Use links above for faster navigation</p>
           </aside>
           <p className="sr-only" aria-live="polite">
             {nearbyDestination
