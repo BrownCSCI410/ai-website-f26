@@ -511,7 +511,7 @@ function App() {
               <img className="enter-key" src={enterKey} alt="Enter" />
               <span className="game-guide-action">Open section</span>
             </div>
-            <p className="game-guide-shortcut">In a hurry? Use the navigation bar above.</p>
+            <p className="game-guide-shortcut">Use the links above for faster navigation</p>
           </aside>
           <p className="sr-only" aria-live="polite">
             {nearbyDestination
