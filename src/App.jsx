@@ -264,6 +264,15 @@ function SectionCard({ section }) {
           <div className={section.id === 'about' ? 'about-copy' : undefined}>
             <h1 id={`section-title-${section.id}`}>{section.title}</h1>
             <p className="section-copy">{section.body}</p>
+            {section.embedUrl && (
+              <div className="calendar-embed">
+                <iframe
+                  src={section.embedUrl}
+                  title="Course Google Calendar"
+                  loading="lazy"
+                />
+              </div>
+            )}
           </div>
           {section.id === 'about' && (
             <img className="about-chicken" src={chicken} alt="Crossy Road chicken" />
