@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap');
 
+@font-face {
+  font-family: '8 Bit Wonder';
+  src: url('./assets/fonts/8-BIT WONDER.TTF') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
 :root {
   --font-display: 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+  --font-pixel: '8 Bit Wonder', 'Courier New', monospace;
   --font-mono: 'DM Mono', 'SFMono-Regular', Consolas, monospace;
   font-family: var(--font-display);
   color: #172127;

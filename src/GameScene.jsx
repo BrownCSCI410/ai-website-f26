@@ -1,35 +1,86 @@
 import { useEffect, useMemo, useRef } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { MathUtils, Vector3 } from 'three'
-import { sections } from './content'
+import { CanvasTexture, MathUtils, Shape, Vector3 } from 'three'
 
 // Three.js objects are mutable by design; React Three Fiber animates them inside useFrame.
 // oxlint-disable react/immutability
 
 const TILE_SIZE = 2.1
-const ROAD_ROWS = new Set([1, 3, 6, 8])
-const WORLD_ROWS = Array.from({ length: 14 }, (_, index) => index - 4)
+const ROAD_ROWS = new Set([1, 3, 6])
+const WORLD_ROWS = Array.from({ length: 7 }, (_, index) => index)
+const BOARD_COLUMNS = 7
+const BOARD_WIDTH = BOARD_COLUMNS * TILE_SIZE
+const BOARD_CENTER_Y = 3 * TILE_SIZE
+const BOARD_DEPTH = WORLD_ROWS.length * TILE_SIZE
 const TREE_LAYOUTS = [
-  [-4, -3, 3, 4],
-  [-4, -2, 3],
-  [-4, -3, 2, 4],
+  [-3, 3],
+  [-3, 2],
+  [-2, 3],
+]
+const PARKED_CARS = {
+  1: [
+    { x: -5.55, color: '#ff785c', direction: 1 },
+    { x: 4.85, color: '#f0c949', direction: -1 },
+  ],
+  3: [
+    { x: -4.35, color: '#8f78d6', direction: -1 },
+    { x: 5.55, color: '#57ad79', direction: 1 },
+  ],
+  6: [
+    { x: -5.75, color: '#88c7df', direction: 1 },
+    { x: 3.95, color: '#f7a65a', direction: -1 },
+  ],
+}
+
+const COIN_SHAPE = new Shape()
+COIN_SHAPE.moveTo(-0.35, -0.58)
+COIN_SHAPE.lineTo(0.35, -0.58)
+COIN_SHAPE.lineTo(0.35, -0.52)
+COIN_SHAPE.lineTo(0.49, -0.52)
+COIN_SHAPE.lineTo(0.49, -0.38)
+COIN_SHAPE.lineTo(0.56, -0.38)
+COIN_SHAPE.lineTo(0.56, 0.38)
+COIN_SHAPE.lineTo(0.49, 0.38)
+COIN_SHAPE.lineTo(0.49, 0.52)
+COIN_SHAPE.lineTo(0.35, 0.52)
+COIN_SHAPE.lineTo(0.35, 0.58)
+COIN_SHAPE.lineTo(-0.35, 0.58)
+COIN_SHAPE.lineTo(-0.35, 0.52)
+COIN_SHAPE.lineTo(-0.49, 0.52)
+COIN_SHAPE.lineTo(-0.49, 0.38)
+COIN_SHAPE.lineTo(-0.56, 0.38)
+COIN_SHAPE.lineTo(-0.56, -0.38)
+COIN_SHAPE.lineTo(-0.49, -0.38)
+COIN_SHAPE.lineTo(-0.49, -0.52)
+COIN_SHAPE.lineTo(-0.35, -0.52)
+COIN_SHAPE.closePath()
+
+const COIN_EXTRUSION = {
+  depth: 0.22,
+  bevelEnabled: false,
+  steps: 1,
+}
+
+const COIN_MARK_SEGMENTS = [
+  { x: 0.02, z: 0.22, width: 0.62, height: 0.14 },
+  { x: -0.22, z: 0, width: 0.14, height: 0.56 },
+  { x: 0.02, z: -0.22, width: 0.62, height: 0.14 },
 ]
 
-function CameraRig({ row }) {
+function CameraRig() {
   const { camera, size } = useThree()
-  const lookAt = useRef(new Vector3())
+  const lookAt = useRef(new Vector3(0, BOARD_CENTER_Y, 0))
 
   useFrame((_, delta) => {
-    const targetY = row * TILE_SIZE
     camera.position.x = MathUtils.damp(camera.position.x, 9.5, 4, delta)
-    camera.position.y = MathUtils.damp(camera.position.y, targetY - 10.5, 4, delta)
+    camera.position.y = MathUtils.damp(camera.position.y, BOARD_CENTER_Y - 11.75, 4, delta)
     camera.position.z = MathUtils.damp(camera.position.z, 9, 4, delta)
     lookAt.current.x = MathUtils.damp(lookAt.current.x, 0, 5, delta)
-    lookAt.current.y = MathUtils.damp(lookAt.current.y, targetY + 1.25, 5, delta)
+    lookAt.current.y = MathUtils.damp(lookAt.current.y, BOARD_CENTER_Y, 5, delta)
     lookAt.current.z = MathUtils.damp(lookAt.current.z, 0, 5, delta)
     camera.lookAt(lookAt.current)
 
-    const targetZoom = size.width < 700 ? 40 : 53
+    const targetZoom = Math.min(size.width / 24, size.height / 20, 28)
     const nextZoom = MathUtils.damp(camera.zoom, targetZoom, 5, delta)
     if (Math.abs(nextZoom - camera.zoom) > 0.01) {
       camera.zoom = nextZoom
@@ -62,82 +113,48 @@ function Tree({ tile, row }) {
   )
 }
 
-function SectionMarker({ index }) {
-  const section = sections[index]
-
-  return (
-    <group position={[-9.2, 0, 0]}>
-      <mesh position-z={0.7} castShadow>
-        <boxGeometry args={[0.16, 0.16, 1.4]} />
-        <meshLambertMaterial color="#203238" />
-      </mesh>
-      <mesh position={[0, 0, 1.25]} castShadow>
-        <boxGeometry args={[1.2, 0.18, 0.7]} />
-        <meshLambertMaterial color={section.accent} />
-      </mesh>
-      <mesh position={[0.37, -0.11, 1.38]}>
-        <boxGeometry args={[0.22, 0.04, 0.22]} />
-        <meshBasicMaterial color="#172127" />
-      </mesh>
-    </group>
-  )
-}
-
 function GrassRow({ row }) {
-  const sectionIndex = row >= 0 && row < sections.length ? row : null
   const trees = TREE_LAYOUTS[Math.abs(row) % TREE_LAYOUTS.length]
 
   return (
     <group position-y={row * TILE_SIZE}>
       <mesh position-z={-0.13} receiveShadow>
-        <boxGeometry args={[24, TILE_SIZE, 0.28]} />
+        <boxGeometry args={[BOARD_WIDTH, TILE_SIZE, 0.28]} />
         <meshLambertMaterial color={row % 2 === 0 ? '#91c95f' : '#9bd06b'} />
       </mesh>
       {trees.map((tile) => (
         <Tree key={tile} tile={tile} row={row} />
       ))}
-      {sectionIndex !== null && <SectionMarker index={sectionIndex} />}
     </group>
   )
 }
 
-function Vehicle({ row, initialX, direction, speed, color, truck = false }) {
-  const vehicle = useRef()
-
-  useFrame((_, delta) => {
-    if (!vehicle.current) return
-    vehicle.current.position.x += direction * speed * delta
-    if (vehicle.current.position.x > 13) vehicle.current.position.x = -13
-    if (vehicle.current.position.x < -13) vehicle.current.position.x = 13
-  })
-
-  const length = truck ? 3.5 : 2.35
-  const cabinX = direction > 0 ? length * 0.22 : -length * 0.22
+function ParkedCar({ x, color, direction = 1 }) {
+  const length = 2.1
+  const cabinX = direction * 0.3
 
   return (
-    <group ref={vehicle} position={[initialX, row * TILE_SIZE, 0.15]}>
-      <mesh position-z={0.42} castShadow receiveShadow>
-        <boxGeometry args={[length, 1.02, 0.52]} />
+    <group position={[x, 0, 0.15]}>
+      <mesh position-z={0.4} castShadow receiveShadow>
+        <boxGeometry args={[length, 0.9, 0.48]} />
         <meshLambertMaterial color={color} />
       </mesh>
-      <mesh position={[cabinX, 0, 0.86]} castShadow>
-        <boxGeometry args={[truck ? 1.1 : 1.15, 0.86, truck ? 0.85 : 0.48]} />
-        <meshLambertMaterial color={truck ? color : '#e9f7f7'} />
+      <mesh position={[cabinX, 0, 0.78]} castShadow>
+        <boxGeometry args={[0.95, 0.76, 0.42]} />
+        <meshLambertMaterial color="#e9f7f7" />
       </mesh>
-      {!truck && (
-        <mesh position={[cabinX + direction * 0.18, -0.44, 0.89]}>
-          <boxGeometry args={[0.55, 0.05, 0.25]} />
-          <meshBasicMaterial color="#8ccbd2" />
-        </mesh>
-      )}
-      {[-length * 0.3, length * 0.3].map((x) => (
-        <group key={x} position-x={x}>
-          <mesh position={[0, -0.52, 0.28]} rotation-x={Math.PI / 2} castShadow>
-            <cylinderGeometry args={[0.29, 0.29, 0.16, 12]} />
+      <mesh position={[cabinX + direction * 0.15, -0.4, 0.8]}>
+        <boxGeometry args={[0.46, 0.04, 0.2]} />
+        <meshBasicMaterial color="#8ccbd2" />
+      </mesh>
+      {[-0.65, 0.65].map((wheelX) => (
+        <group key={wheelX} position-x={wheelX}>
+          <mesh position={[0, -0.47, 0.25]} rotation-x={Math.PI / 2} castShadow>
+            <cylinderGeometry args={[0.25, 0.25, 0.14, 12]} />
             <meshLambertMaterial color="#263136" />
           </mesh>
-          <mesh position={[0, 0.52, 0.28]} rotation-x={Math.PI / 2} castShadow>
-            <cylinderGeometry args={[0.29, 0.29, 0.16, 12]} />
+          <mesh position={[0, 0.47, 0.25]} rotation-x={Math.PI / 2} castShadow>
+            <cylinderGeometry args={[0.25, 0.25, 0.14, 12]} />
             <meshLambertMaterial color="#263136" />
           </mesh>
         </group>
@@ -147,48 +164,36 @@ function Vehicle({ row, initialX, direction, speed, color, truck = false }) {
 }
 
 function RoadRow({ row }) {
-  const direction = row % 2 === 0 ? 1 : -1
-  const palette = row % 3 === 0 ? ['#ff785c', '#f0c949', '#88c7df'] : ['#8f78d6', '#f7a65a', '#57ad79']
+  const cars = PARKED_CARS[row] || []
 
   return (
-    <>
-      <group position-y={row * TILE_SIZE}>
-        <mesh position-z={-0.08} receiveShadow>
-          <boxGeometry args={[24, TILE_SIZE, 0.16]} />
-          <meshLambertMaterial color="#3e4a4e" />
+    <group position-y={row * TILE_SIZE}>
+      <mesh position-z={-0.08} receiveShadow>
+        <boxGeometry args={[BOARD_WIDTH, TILE_SIZE, 0.16]} />
+        <meshLambertMaterial color="#3e4a4e" />
+      </mesh>
+      <mesh position={[0, -0.82, 0.02]}>
+        <boxGeometry args={[BOARD_WIDTH, 0.06, 0.03]} />
+        <meshBasicMaterial color="#d8d3bc" />
+      </mesh>
+      <mesh position={[0, 0.82, 0.02]}>
+        <boxGeometry args={[BOARD_WIDTH, 0.06, 0.03]} />
+        <meshBasicMaterial color="#d8d3bc" />
+      </mesh>
+      {[-6, -3, 0, 3, 6].map((x) => (
+        <mesh key={x} position={[x, 0, 0.02]}>
+          <boxGeometry args={[1.25, 0.06, 0.03]} />
+          <meshBasicMaterial color="#f3edda" />
         </mesh>
-        <mesh position={[0, -0.82, 0.02]}>
-          <boxGeometry args={[24, 0.06, 0.03]} />
-          <meshBasicMaterial color="#d8d3bc" />
-        </mesh>
-        <mesh position={[0, 0.82, 0.02]}>
-          <boxGeometry args={[24, 0.06, 0.03]} />
-          <meshBasicMaterial color="#d8d3bc" />
-        </mesh>
-        {[-8, -4, 0, 4, 8].map((x) => (
-          <mesh key={x} position={[x, 0, 0.02]}>
-            <boxGeometry args={[1.7, 0.06, 0.03]} />
-            <meshBasicMaterial color="#f3edda" />
-          </mesh>
-        ))}
-        {row >= 0 && row < sections.length && <SectionMarker index={row} />}
-      </group>
-      {[-8, -1, 6].map((x, index) => (
-        <Vehicle
-          key={x}
-          row={row}
-          initialX={x}
-          direction={direction}
-          speed={2.6 + (Math.abs(row) % 3) * 0.45}
-          color={palette[index]}
-          truck={index === 1 && row % 3 === 0}
-        />
       ))}
-    </>
+      {cars.map((car) => (
+        <ParkedCar key={`${car.x}-${car.color}`} {...car} />
+      ))}
+    </group>
   )
 }
 
-function Chicken({ row, tile }) {
+function Chicken({ row, tile, hopKey }) {
   const group = useRef()
   const body = useRef()
   const hopTime = useRef(1)
@@ -203,7 +208,7 @@ function Chicken({ row, tile }) {
     if (tileDelta !== 0) facing.current = tileDelta > 0 ? -Math.PI / 2 : Math.PI / 2
     previous.current = { row, tile }
     hopTime.current = 0
-  }, [row, tile])
+  }, [row, tile, hopKey])
 
   useFrame((_, delta) => {
     if (!group.current || !body.current) return
@@ -260,6 +265,102 @@ function Chicken({ row, tile }) {
   )
 }
 
+function DestinationCoin({ destination, isActivating }) {
+  const group = useRef()
+  const activationTime = useRef(1)
+
+  useEffect(() => {
+    if (isActivating) activationTime.current = 0
+  }, [isActivating])
+
+  useFrame(({ clock }, delta) => {
+    if (!group.current) return
+    activationTime.current = Math.min(activationTime.current + delta, 0.45)
+    const progress = activationTime.current / 0.45
+    const pulse = progress < 1 ? Math.sin(progress * Math.PI) : 0
+    group.current.position.z = 0.72
+      + Math.sin(clock.elapsedTime * 2.2 + destination.sectionIndex) * 0.08
+      + pulse * 0.7
+    group.current.rotation.z += delta * 0.8
+    group.current.scale.setScalar(1 + pulse * 0.42)
+  })
+
+  return (
+    <group
+      ref={group}
+      position={[destination.tile * TILE_SIZE, destination.row * TILE_SIZE, 0.72]}
+    >
+      <mesh rotation-x={Math.PI / 2} castShadow receiveShadow>
+        <extrudeGeometry args={[COIN_SHAPE, COIN_EXTRUSION]} />
+        <meshLambertMaterial attach="material-0" color="#ffdc19" />
+        <meshLambertMaterial attach="material-1" color="#bc9300" />
+      </mesh>
+      {COIN_MARK_SEGMENTS.map((segment) => (
+        <mesh
+          key={`recess-${segment.x}-${segment.z}`}
+          position={[segment.x, -0.235, segment.z]}
+          castShadow
+        >
+          <boxGeometry args={[segment.width + 0.055, 0.035, segment.height + 0.055]} />
+          <meshLambertMaterial color="#9c7900" />
+        </mesh>
+      ))}
+      {COIN_MARK_SEGMENTS.map((segment) => (
+        <mesh
+          key={`mark-${segment.x}-${segment.z}`}
+          position={[segment.x, -0.26, segment.z]}
+          castShadow
+        >
+          <boxGeometry args={[segment.width, 0.035, segment.height]} />
+          <meshLambertMaterial color="#ff203b" />
+        </mesh>
+      ))}
+    </group>
+  )
+}
+
+function DestinationLabel({ destination, canActivate }) {
+  const texture = useMemo(() => {
+    const canvas = document.createElement('canvas')
+    canvas.width = 768
+    canvas.height = 160
+    const context = canvas.getContext('2d')
+    const text = canActivate
+      ? `${destination.label.toUpperCase()}  •  ENTER`
+      : destination.label.toUpperCase()
+
+    context.imageSmoothingEnabled = false
+    context.fillStyle = 'rgba(23, 33, 39, 0.94)'
+    context.fillRect(10, 18, canvas.width - 20, canvas.height - 36)
+    context.strokeStyle = '#ffffff'
+    context.lineWidth = 8
+    context.strokeRect(10, 18, canvas.width - 20, canvas.height - 36)
+    context.fillStyle = '#ffffff'
+    context.font = '700 46px monospace'
+    context.textAlign = 'center'
+    context.textBaseline = 'middle'
+    context.fillText(text, canvas.width / 2, canvas.height / 2 + 2)
+
+    return new CanvasTexture(canvas)
+  }, [canActivate, destination.label])
+
+  useEffect(() => () => texture.dispose(), [texture])
+
+  return (
+    <sprite
+      position={[
+        destination.tile * TILE_SIZE,
+        destination.row * TILE_SIZE,
+        3.05,
+      ]}
+      scale={[5.4, 1.12, 1]}
+      renderOrder={10}
+    >
+      <spriteMaterial map={texture} transparent depthTest={false} />
+    </sprite>
+  )
+}
+
 function Cloud({ position, scale = 1 }) {
   return (
     <group position={position} scale={scale}>
@@ -277,27 +378,65 @@ function Cloud({ position, scale = 1 }) {
   )
 }
 
-function World({ position }) {
+function World({ position, destinations, activatingSectionIndex, activationKey }) {
+  const nearbyDestination = useMemo(() => (
+    destinations
+      .map((destination) => ({
+        ...destination,
+        distance: Math.abs(destination.tile - position.tile)
+          + Math.abs(destination.row - position.row),
+      }))
+      .filter((destination) => destination.distance === 0)
+      .sort((first, second) => first.distance - second.distance)[0] || null
+  ), [destinations, position.row, position.tile])
+
   return (
     <>
-      <CameraRig row={position.row} />
-      {WORLD_ROWS.map((row) =>
-        ROAD_ROWS.has(row) ? <RoadRow key={row} row={row} /> : <GrassRow key={row} row={row} />,
-      )}
-      <Chicken row={position.row} tile={position.tile} />
-      <Cloud position={[-7, 8, 8]} scale={1.25} />
-      <Cloud position={[8, 15, 10]} scale={0.9} />
+      <CameraRig />
+      <group position-x={-0.55}>
+        <mesh position={[0, BOARD_CENTER_Y, -0.62]} castShadow receiveShadow>
+          <boxGeometry args={[BOARD_WIDTH + 0.45, BOARD_DEPTH + 0.45, 1.05]} />
+          <meshLambertMaterial color="#587348" />
+        </mesh>
+        {WORLD_ROWS.map((row) =>
+          ROAD_ROWS.has(row)
+            ? <RoadRow key={row} row={row} />
+            : <GrassRow key={row} row={row} />,
+        )}
+        {destinations.map((destination) => (
+          <DestinationCoin
+            key={destination.id}
+            destination={destination}
+            isActivating={activatingSectionIndex === destination.sectionIndex}
+          />
+        ))}
+        {nearbyDestination ? (
+          <DestinationLabel
+            destination={nearbyDestination}
+            canActivate={nearbyDestination.distance === 0}
+          />
+        ) : null}
+        <Chicken row={position.row} tile={position.tile} hopKey={activationKey} />
+        <Cloud position={[4.5, 8.5, 7]} scale={0.65} />
+        <Cloud position={[-4.5, 6.8, 5]} scale={0.5} />
+        <Cloud position={[5, -1.5, 5]} scale={0.55} />
+      </group>
     </>
   )
 }
 
-export function GameScene({ position }) {
+export function GameScene({
+  position,
+  destinations = [],
+  activatingSectionIndex = null,
+  activationKey = 0,
+}) {
   return (
     <Canvas
       className="game-canvas"
       shadows
       orthographic
-      camera={{ position: [9.5, -10.5, 9], zoom: 53, near: 0.1, far: 100, up: [0, 0, 1] }}
+      camera={{ position: [9.5, BOARD_CENTER_Y - 11.75, 9], zoom: 24, near: 0.1, far: 100, up: [0, 0, 1] }}
       dpr={[1, 1.5]}
       gl={{ antialias: true, powerPreference: 'high-performance' }}
     >
@@ -314,7 +453,12 @@ export function GameScene({ position }) {
         shadow-camera-top={14}
         shadow-camera-bottom={-14}
       />
-      <World position={position} />
+      <World
+        position={position}
+        destinations={destinations}
+        activatingSectionIndex={activatingSectionIndex}
+        activationKey={activationKey}
+      />
     </Canvas>
   )
 }
