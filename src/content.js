@@ -1,3 +1,8 @@
+import davidVassalluzzoPhoto from './assets/david-vassalluzzo.jpg'
+import joanneDingPhoto from './assets/joanne-ding.jpg'
+import johnLockwoodPhoto from './assets/john-lockwood.jpg'
+import sydneyRondeauPhoto from './assets/sydney-rondeau.jpg'
+
 export const sections = [
   {
     id: 'about',
@@ -144,16 +149,16 @@ export const sections = [
     label: 'Staff',
     title: 'Staff',
     members: [
-      { id: 'professor', name: 'Amy Greenwald', role: 'Professor', image: '/staff/amy-greenwald.jpg', bio: 'Leads the course and guides students through the foundations of artificial intelligence and machine learning.', shirt: '#ff6b57', detail: '#143a58', skin: '#d7a06f', hair: '#3e2a22' },
-      { id: 'head-ta-1', name: 'Salman Aji', role: 'HTA', image: '/staff/salman-aji.jpg', bio: 'Helps lead the teaching team and supports students throughout the course.', shirt: '#f4c84a', detail: '#ca6a36', skin: '#9a6048', hair: '#241e20' },
-      { id: 'head-ta-2', name: 'Mehdi Atmani', role: 'HTA', image: '/staff/mehdi-atmani.jpg', bio: 'Helps lead the teaching team and supports students throughout the course.', shirt: '#5cb9e8', detail: '#194a72', skin: '#efbd8e', hair: '#72503b' },
-      { id: 'sta-uta', name: 'Myan Nguyen', role: 'STA-UTA', image: '/staff/myan-nguyen.jpg', bio: 'Supports the teaching team, course operations, and students throughout the semester.', shirt: '#a8df63', detail: '#426f3b', skin: '#bd7f5c', hair: '#342824' },
-      { id: 'uta-1', name: 'Ashley Luo', role: 'UTA', image: '/staff/ashley-luo.jpg', bio: 'Supports students through office hours, discussion, and course activities.', shirt: '#d2a8ff', detail: '#624c98', skin: '#e1ad7d', hair: '#2a2029' },
-      { id: 'uta-2', name: 'David Vassalluzzo', role: 'UTA', image: '/staff/david-vassalluzzo.jpg', bio: 'Supports students through office hours, discussion, and course activities.', shirt: '#ff9eb5', detail: '#9e4763', skin: '#8e563e', hair: '#16191b' },
-      { id: 'uta-3', name: 'Joanne Ding', role: 'UTA', image: '/staff/joanne-ding.jpg', bio: 'Supports students through office hours, discussion, and course activities.', shirt: '#78d8c4', detail: '#25766e', skin: '#efc39c', hair: '#bc7a3e' },
-      { id: 'uta-4', name: 'John Lockwood', role: 'UTA', image: '/staff/john-lockwood.jpg', bio: 'Supports students through office hours, discussion, and course activities.', shirt: '#ff9a58', detail: '#934423', skin: '#b97452', hair: '#37251f' },
-      { id: 'uta-5', name: 'Sydney Rondeau', role: 'UTA', image: '/staff/sydney-rondeau.jpg', bio: 'Supports students through office hours, discussion, and course activities.', shirt: '#7ea7ff', detail: '#344f9c', skin: '#f1c6a0', hair: '#4d3428' },
-      { id: 'uta-6', name: 'Tyrone Serapio', role: 'UTA', image: '/staff/tyrone-serapio.jpg', bio: 'Supports students through office hours, discussion, and course activities.', shirt: '#d7e65b', detail: '#647529', skin: '#774a38', hair: '#171719' },
+      { id: 'professor', name: 'Amy Greenwald', role: 'Professor', image: null, bio: 'Leads the course and guides students through the foundations of artificial intelligence and machine learning.', shirt: '#ff6b57', detail: '#143a58', skin: '#d7a06f', hair: '#3e2a22' },
+      { id: 'head-ta-1', name: 'Salman Aji', role: 'HTA', image: null, bio: 'Helps lead the teaching team and supports students throughout the course.', shirt: '#f4c84a', detail: '#ca6a36', skin: '#9a6048', hair: '#241e20' },
+      { id: 'head-ta-2', name: 'Mehdi Atmani', role: 'HTA', image: null, bio: 'Helps lead the teaching team and supports students throughout the course.', shirt: '#5cb9e8', detail: '#194a72', skin: '#efbd8e', hair: '#72503b' },
+      { id: 'sta-uta', name: 'Myan Nguyen', role: 'STA-UTA', image: null, bio: 'Supports the teaching team, course operations, and students throughout the semester.', shirt: '#a8df63', detail: '#426f3b', skin: '#bd7f5c', hair: '#342824' },
+      { id: 'uta-1', name: 'Ashley Luo', role: 'UTA', image: null, bio: 'Supports students through office hours, discussion, and course activities.', shirt: '#d2a8ff', detail: '#624c98', skin: '#e1ad7d', hair: '#2a2029' },
+      { id: 'uta-2', name: 'David Vassalluzzo', role: 'UTA', image: davidVassalluzzoPhoto, bio: 'Supports students through office hours, discussion, and course activities.', shirt: '#ff9eb5', detail: '#9e4763', skin: '#8e563e', hair: '#16191b' },
+      { id: 'uta-3', name: 'Joanne Ding', role: 'UTA', image: joanneDingPhoto, bio: 'Supports students through office hours, discussion, and course activities.', shirt: '#78d8c4', detail: '#25766e', skin: '#efc39c', hair: '#bc7a3e' },
+      { id: 'uta-4', name: 'John Lockwood', role: 'UTA', image: johnLockwoodPhoto, bio: 'Supports students through office hours, discussion, and course activities.', shirt: '#ff9a58', detail: '#934423', skin: '#b97452', hair: '#37251f' },
+      { id: 'uta-5', name: 'Sydney Rondeau', role: 'UTA', image: sydneyRondeauPhoto, bio: 'Supports students through office hours, discussion, and course activities.', shirt: '#7ea7ff', detail: '#344f9c', skin: '#f1c6a0', hair: '#4d3428' },
+      { id: 'uta-6', name: 'Tyrone Serapio', role: 'UTA', image: null, bio: 'Supports students through office hours, discussion, and course activities.', shirt: '#d7e65b', detail: '#647529', skin: '#774a38', hair: '#171719' },
     ],
     accent: '#ff9eb5',
     action: 'Open resources',

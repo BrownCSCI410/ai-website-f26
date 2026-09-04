@@ -778,18 +778,18 @@ button {
 }
 
 .staff-profile {
-  width: min(100%, 620px);
-  min-height: 145px;
+  width: min(100%, 680px);
+  min-height: 195px;
   margin: 18px auto 0;
   display: grid;
-  grid-template-columns: 128px minmax(0, 1fr);
+  grid-template-columns: 180px minmax(0, 1fr);
   align-items: center;
-  gap: 28px;
+  gap: 34px;
 }
 
 .staff-photo-frame {
   position: relative;
-  width: 128px;
+  width: 180px;
   aspect-ratio: 1;
   display: grid;
   place-items: center;
@@ -1124,12 +1124,12 @@ button:focus-visible {
   }
 
   .staff-profile {
-    grid-template-columns: 96px minmax(0, 1fr);
+    grid-template-columns: 120px minmax(0, 1fr);
     gap: 18px;
   }
 
   .staff-photo-frame {
-    width: 96px;
+    width: 120px;
   }
 
   .staff-photo-fallback {

@@ -143,14 +143,16 @@ function StaffPhoto({ member }) {
   return (
     <div className="staff-photo-frame" key={member.id}>
       <span className="staff-photo-fallback" aria-hidden="true">{initials}</span>
-      <img
-        className="staff-photo"
-        src={member.image}
-        alt={`${member.name}, ${member.role}`}
-        onError={(event) => {
-          event.currentTarget.hidden = true
-        }}
-      />
+      {member.image && (
+        <img
+          className="staff-photo"
+          src={member.image}
+          alt={`${member.name}, ${member.role}`}
+          onError={(event) => {
+            event.currentTarget.hidden = true
+          }}
+        />
+      )}
     </div>
   )
 }
