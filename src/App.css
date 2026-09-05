@@ -881,6 +881,23 @@ button {
   text-align: left;
 }
 
+.staff-hometown {
+  display: inline-block;
+  max-width: 100%;
+  margin: 16px 0 0;
+  padding: 8px 12px;
+  border: 2px solid var(--ink);
+  background: rgba(255, 255, 255, 0.65);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.staff-hometown span {
+  font-weight: 700;
+}
+
 .staff-identity .staff-role {
   margin: 0 0 7px;
   font-family: var(--font-mono);

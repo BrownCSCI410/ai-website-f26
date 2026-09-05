@@ -224,6 +224,9 @@ function StaffCarousel({ members }) {
           <p className="staff-role">{activeMember.role}</p>
           <h2>{activeMember.name}</h2>
           <p className="staff-bio">{activeMember.bio}</p>
+          <p className="staff-hometown">
+            <span>Hometown:</span> {activeMember.hometown || '—'}
+          </p>
         </div>
       </div>
 
