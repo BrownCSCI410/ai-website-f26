@@ -3,7 +3,7 @@ import joanneDingPhoto from './assets/joanne-ding.jpg'
 import johnLockwoodPhoto from './assets/john-lockwood.jpg'
 import sydneyRondeauPhoto from './assets/sydney-rondeau.jpg'
 import tyroneSerapioPhoto from './assets/tyrone-serapio.jpg'
-import salmanAjiPhoto from './assets/salman-aji.jpg'
+import salmanAjiPhoto from './assets/salman-aji.png'
 import mehdiAtmaniPhoto from './assets/mehdi-atmani.jpg'
 import ashleyLuoPhoto from './assets/ashley-luo.jpg'
 
