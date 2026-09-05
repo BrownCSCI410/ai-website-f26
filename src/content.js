@@ -2,6 +2,7 @@ import davidVassalluzzoPhoto from './assets/david-vassalluzzo.jpg'
 import joanneDingPhoto from './assets/joanne-ding.jpg'
 import johnLockwoodPhoto from './assets/john-lockwood.jpg'
 import sydneyRondeauPhoto from './assets/sydney-rondeau.jpg'
+import tyroneSerapioPhoto from './assets/tyrone-serapio.jpg'
 
 export const sections = [
   {
@@ -147,7 +148,7 @@ export const sections = [
       { id: 'uta-3', name: 'Joanne Ding', role: 'UTA', image: joanneDingPhoto, bio: 'Supports students through office hours, discussion, and course activities.', shirt: '#78d8c4', detail: '#25766e', skin: '#efc39c', hair: '#bc7a3e' },
       { id: 'uta-4', name: 'John Lockwood', role: 'UTA', image: johnLockwoodPhoto, bio: 'Supports students through office hours, discussion, and course activities.', shirt: '#ff9a58', detail: '#934423', skin: '#b97452', hair: '#37251f' },
       { id: 'uta-5', name: 'Sydney Rondeau', role: 'UTA', image: sydneyRondeauPhoto, bio: 'Supports students through office hours, discussion, and course activities.', shirt: '#7ea7ff', detail: '#344f9c', skin: '#f1c6a0', hair: '#4d3428' },
-      { id: 'uta-6', name: 'Tyrone Serapio', role: 'UTA', image: null, bio: 'Supports students through office hours, discussion, and course activities.', shirt: '#d7e65b', detail: '#647529', skin: '#774a38', hair: '#171719' },
+      { id: 'uta-6', name: 'Tyrone Serapio', role: 'UTA', image: tyroneSerapioPhoto, bio: 'Supports students through office hours, discussion, and course activities.', shirt: '#d7e65b', detail: '#647529', skin: '#774a38', hair: '#171719' },
     ],
     accent: '#ff9eb5',
     action: 'Open resources',

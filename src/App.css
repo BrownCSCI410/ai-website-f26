@@ -838,14 +838,14 @@ button {
   min-height: 195px;
   margin: 18px auto 0;
   display: grid;
-  grid-template-columns: 180px minmax(0, 1fr);
+  grid-template-columns: 280px minmax(0, 1fr);
   align-items: center;
   gap: 34px;
 }
 
 .staff-photo-frame {
   position: relative;
-  width: 180px;
+  width: 280px;
   aspect-ratio: 1;
   display: grid;
   place-items: center;
@@ -869,6 +869,7 @@ button {
   height: 100%;
   display: block;
   object-fit: cover;
+  image-rendering: auto;
 }
 
 .staff-photo[hidden] {
@@ -910,7 +911,7 @@ button {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin-top: 14px;
+  margin-top: 36px;
 }
 
 .staff-dots button {
@@ -1193,12 +1194,17 @@ button:focus-visible {
   }
 
   .staff-profile {
-    grid-template-columns: 120px minmax(0, 1fr);
-    gap: 18px;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 24px;
   }
 
   .staff-photo-frame {
-    width: 120px;
+    width: min(100%, 260px);
+  }
+
+  .staff-identity {
+    text-align: center;
   }
 
   .staff-photo-fallback {
