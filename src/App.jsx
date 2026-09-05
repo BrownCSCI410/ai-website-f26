@@ -106,43 +106,10 @@ function CourseTable({ table }) {
   )
 }
 
-function VoxelAvatar({ member }) {
-  return (
-    <div
-      className="voxel-person"
-      style={{
-        '--avatar-shirt': member.shirt,
-        '--avatar-detail': member.detail,
-        '--avatar-skin': member.skin,
-        '--avatar-hair': member.hair,
-      }}
-      aria-hidden="true"
-    >
-      <span className="voxel-hair" />
-      <span className="voxel-head">
-        <span className="voxel-eye voxel-eye--left" />
-        <span className="voxel-eye voxel-eye--right" />
-      </span>
-      <span className="voxel-neck" />
-      <span className="voxel-body"><span className="voxel-shirt-detail" /></span>
-      <span className="voxel-arm voxel-arm--left" />
-      <span className="voxel-arm voxel-arm--right" />
-      <span className="voxel-leg voxel-leg--left" />
-      <span className="voxel-leg voxel-leg--right" />
-    </div>
-  )
-}
 
 function StaffPhoto({ member }) {
-  const initials = member.name
-    .split(' ')
-    .map((part) => part[0])
-    .join('')
-    .slice(0, 2)
-
   return (
     <div className="staff-photo-frame" key={member.id}>
-      <span className="staff-photo-fallback" aria-hidden="true">{initials}</span>
       {member.image && (
         <img
           className="staff-photo"
@@ -160,7 +127,6 @@ function StaffPhoto({ member }) {
 function StaffCarousel({ members }) {
   const [activeIndex, setActiveIndex] = useState(0)
   const activeMember = members[activeIndex]
-  const offsets = [-2, -1, 0, 1, 2]
 
   const selectMember = (index) => {
     setActiveIndex((index + members.length) % members.length)
@@ -189,23 +155,16 @@ function StaffCarousel({ members }) {
           <img src={playButton} alt="" aria-hidden="true" />
         </button>
 
-        <div className="staff-lineup" aria-live="polite">
-          {offsets.map((offset) => {
-            const memberIndex = (activeIndex + offset + members.length) % members.length
-            const member = members[memberIndex]
-            return (
-              <button
-                className={`staff-character staff-character--${offset === 0 ? 'active' : `offset-${Math.abs(offset)}`}`}
-                type="button"
-                key={`${member.id}-${offset}`}
-                onClick={() => selectMember(memberIndex)}
-                aria-label={`${member.name}, ${member.role}`}
-                aria-current={offset === 0 ? 'true' : undefined}
-              >
-                <VoxelAvatar member={member} />
-              </button>
-            )
-          })}
+        <div className="staff-profile" aria-live="polite" aria-atomic="true">
+          <StaffPhoto member={activeMember} />
+          <div className="staff-identity">
+            <p className="staff-role">{activeMember.role}</p>
+            <h2>{activeMember.name}</h2>
+            <p className="staff-bio">{activeMember.bio}</p>
+            <p className="staff-hometown">
+              <span>Hometown:</span> {activeMember.hometown || '—'}
+            </p>
+          </div>
         </div>
 
         <button
@@ -218,17 +177,6 @@ function StaffCarousel({ members }) {
         </button>
       </div>
 
-      <div className="staff-profile">
-        <StaffPhoto member={activeMember} />
-        <div className="staff-identity">
-          <p className="staff-role">{activeMember.role}</p>
-          <h2>{activeMember.name}</h2>
-          <p className="staff-bio">{activeMember.bio}</p>
-          <p className="staff-hometown">
-            <span>Hometown:</span> {activeMember.hometown || '—'}
-          </p>
-        </div>
-      </div>
 
       <div className="staff-dots" aria-label="Choose a staff member">
         {members.map((member, index) => (
