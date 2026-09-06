@@ -1,0 +1,150 @@
+.course-table-region {
+  overflow: visible;
+  border: 1px solid rgba(23, 33, 39, 0.45);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.content-section:not(.content-section--about) .course-table-caption {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.course-table-caption {
+  margin: 14px 0 24px;
+  font-family: var(--font-mono);
+  font-size: clamp(14px, 1.2vw, 18px);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.course-table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-family: var(--font-mono);
+  font-size: clamp(13px, 0.95vw, 15px);
+  line-height: 1.45;
+}
+
+.course-table th,
+.course-table td {
+  padding: 16px 14px;
+  border-bottom: 1px solid rgba(23, 33, 39, 0.18);
+  text-align: left;
+  vertical-align: top;
+}
+
+.course-table thead th {
+  color: var(--ink);
+  background: var(--accent);
+  font-size: clamp(12px, 0.85vw, 14px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.course-table th:first-child {
+  width: 57%;
+}
+
+.course-table th:nth-child(2),
+.course-table td:nth-child(2) {
+  width: 15%;
+}
+
+.course-table th:nth-child(3),
+.course-table td:nth-child(3) {
+  width: 28%;
+}
+
+.course-table--lectures {
+  min-width: 900px;
+}
+
+.course-table--lectures th:first-child {
+  width: 43%;
+}
+
+.course-table--lectures th:nth-child(2),
+.course-table--lectures td:nth-child(2) {
+  width: 13%;
+}
+
+.course-table--lectures th:nth-child(3),
+.course-table--lectures td:nth-child(3) {
+  width: 20%;
+}
+
+.course-table--lectures th:nth-child(4),
+.course-table--lectures td:nth-child(4) {
+  width: 24%;
+}
+
+.course-table--lectures thead th,
+.course-table--discussion thead th {
+  background: #f4c84a;
+}
+
+.course-table--discussion {
+  min-width: 700px;
+}
+
+.course-table--discussion th:first-child {
+  width: 42%;
+}
+
+.course-table--discussion th:nth-child(2),
+.course-table--discussion td:nth-child(2) {
+  width: 34%;
+}
+
+.course-table--discussion th:nth-child(3),
+.course-table--discussion td:nth-child(3) {
+  width: 24%;
+}
+
+.course-table tbody th {
+  font-weight: 500;
+}
+
+.course-table tbody th a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--ink);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 150ms ease, background 150ms ease;
+}
+
+.course-table tbody th a:hover,
+.course-table tbody th a:focus-visible {
+  color: var(--ink);
+  background: var(--accent);
+}
+
+.course-table tbody td a {
+  margin-right: 18px;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--ink);
+  text-underline-offset: 3px;
+}
+
+.course-table tbody tr:last-child th,
+.course-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .course-table-region {
+    overflow-x: auto;
+  }
+
+  .course-table th,
+  .course-table td {
+    padding: 9px 8px;
+  }
+}

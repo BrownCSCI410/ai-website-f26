@@ -1,0 +1,28 @@
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: calc(100svh - 72px);
+  display: grid;
+  place-items: center;
+  padding: clamp(30px, 6vw, 80px);
+  overflow: hidden;
+}
+
+.landing-title-image {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: min(82vw, 1040px);
+  height: auto;
+}
+
+@media (max-width: 760px) {
+  .hero-section {
+    min-height: calc(100svh - 62px);
+    padding: 24px 16px;
+  }
+
+  .landing-title-image {
+    width: min(92vw, 680px);
+  }
+}
