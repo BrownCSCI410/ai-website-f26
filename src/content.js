@@ -6,6 +6,7 @@ import tyroneSerapioPhoto from './assets/tyrone-serapio.jpg'
 import salmanAjiPhoto from './assets/salman-aji.png'
 import mehdiAtmaniPhoto from './assets/mehdi-atmani.jpg'
 import ashleyLuoPhoto from './assets/ashley-luo.jpg'
+import myanNguyenPhoto from './assets/myan-nguyen.jpg'
 
 export const sections = [
   {
@@ -160,7 +161,7 @@ export const sections = [
       { id: 'professor', name: 'Amy Greenwald', gender: 'woman', role: 'Professor', image: null, hometown: '', bio: "", shirt: '#ff6b57', detail: '#143a58', skin: '#d7a06f', hair: '#3e2a22' },
       { id: 'head-ta-1', name: 'Salman Aji', gender: 'man', role: 'HTA', image: salmanAjiPhoto, hometown: 'Latakia, Syria', bio: "Hey! I'm Salman, and I'm a senior from Syria studying CS and APMA. In my free time, I love to play Minecraft, watch a sitcom (currently looking for one to watch next), or hike! Super excited to meet you all :)", shirt: '#f4c84a', detail: '#ca6a36', skin: '#9a6048', hair: '#241e20' },
       { id: 'head-ta-2', name: 'Mehdi Atmani', gender: 'man', role: 'HTA', image: mehdiAtmaniPhoto, hometown: 'Casablanca, Morocco', bio: "Hi! I’m Mehdi, a senior double majoring in Computer Science and APMA–Econ. Outside of school, I enjoy playing poker, building in Minecraft, and going on side quests. Super excited to meet you all!", shirt: '#5cb9e8', detail: '#194a72', skin: '#efbd8e', hair: '#72503b' },
-      { id: 'sta-uta', name: 'Myan Nguyen', gender: 'man', role: 'Joint STA/UTA', image: null, hometown: 'Westbrook, Connecticut', bio: "Hey everyone! I'm a senior studying Computer Science. Outside of the CIT, you can usually find me in Ceremony, playing tennis or spikeball, or on a walk around College Hill!", shirt: '#a8df63', detail: '#426f3b', skin: '#bd7f5c', hair: '#342824' },
+      { id: 'sta-uta', name: 'Myan Nguyen', gender: 'man', role: 'Joint STA/UTA', image: myanNguyenPhoto, hometown: 'Westbrook, Connecticut', bio: "Hey everyone! I'm a senior studying Computer Science. Outside of the CIT, you can usually find me in Ceremony, playing tennis or spikeball, or on a walk around College Hill!", shirt: '#a8df63', detail: '#426f3b', skin: '#bd7f5c', hair: '#342824' },
       { id: 'uta-1', name: 'Ashley Luo', gender: 'woman', role: 'UTA', image: ashleyLuoPhoto, hometown: 'Weston', bio: "I love watercolor and sewing! And I cannot wiggle my eyebrows at all.", shirt: '#d2a8ff', detail: '#624c98', skin: '#e1ad7d', hair: '#2a2029' },
       { id: 'uta-2', name: 'David Vassalluzzo', gender: 'man', role: 'UTA', image: davidVassalluzzoPhoto, hometown: 'Boca Raton, FL', bio: "Hello everyone! I'm David Vassalluzzo, a junior from Boca Raton, Florida, studying APMA-CS. I love all things AI and playing and watching sports, so feel free to chat with me about that. I'm looking forward to meeting all of you.", shirt: '#ff9eb5', detail: '#9e4763', skin: '#8e563e', hair: '#16191b' },
       { id: 'uta-3', name: 'Joanne Ding', gender: 'woman', role: 'UTA', image: joanneDingPhoto, hometown: 'Shanghai, China', bio: "Hi! I'm a junior studying Math-CS. Outside of class, I enjoy exploring Providence, browsing the stacks at the Orwig Music Library, and playing the flute. Excited to meet everyone!", shirt: '#78d8c4', detail: '#25766e', skin: '#efc39c', hair: '#bc7a3e' },
@@ -179,9 +180,9 @@ export const sections = [
     title: 'Resources',
     meta: ['Course missive', 'Code + debugging', 'Python guides'],
     links: [
-      { label: 'Course Missive', href: 'https://hackmd.io/eFzIAJmCTtW0fUGJ4w5xOg' },
-      { label: 'EdStem Discussion', href: 'https://edstem.org/us/courses/93617' },
-      { label: 'Testing Guide', href: 'https://hackmd.io/@cs410/SyDy2CVnA' },
+      { label: 'Course Missive', href: 'https://hackmd.io/BYFMfsT1Qm-KryUFKOfBYA' },
+      { label: 'EdStem Discussion', href: 'https://edstem.org/us/courses/105523/discussion' },
+      { label: 'Testing Guide', href: 'https://docs.google.com/document/d/1otaPyhze73Qv6GMfuddAoTQJg10a5Fj8ICOaEraqBtA/edit?tab=t.0#heading=h.60udf8bnil5l' },
     ],
     accent: '#78d8c4',
     action: 'Back to course intro',
