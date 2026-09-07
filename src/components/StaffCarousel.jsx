@@ -7,7 +7,7 @@ function StaffPhoto({ member }) {
     <div className="staff-photo-frame" key={member.id}>
       {member.image && (
         <img
-          className="staff-photo"
+          className={`staff-photo ${member.id === 'professor' ? 'staff-photo--chicken' : ''}`}
           src={member.image}
           alt={`${member.name}, ${member.role}`}
           onError={(event) => {

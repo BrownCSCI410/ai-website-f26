@@ -79,6 +79,10 @@
   display: none;
 }
 
+.staff-photo--chicken {
+  object-fit: contain;
+}
+
 .staff-identity {
   min-width: 0;
   text-align: left;

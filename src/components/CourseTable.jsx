@@ -1,24 +1,6 @@
-import { useEffect, useState } from 'react'
 import './CourseTable.css'
 
 export function CourseTable({ table }) {
-  const [now, setNow] = useState(() => Date.now())
-
-  useEffect(() => {
-    if (!table.releaseDates) return undefined
-
-    const nextRelease = table.releaseDates
-      .map((date) => Date.parse(date))
-      .find((releaseTime) => releaseTime > now)
-    if (!nextRelease) return undefined
-
-    const timer = window.setTimeout(
-      () => setNow(Date.now()),
-      Math.min(nextRelease - now + 100, 60 * 60 * 1000),
-    )
-    return () => window.clearTimeout(timer)
-  }, [now, table.releaseDates])
-
   return (
     <>
       <p className="course-table-caption">{table.caption}</p>
@@ -32,23 +14,18 @@ export function CourseTable({ table }) {
             </tr>
           </thead>
           <tbody>
-            {table.rows.map((row, rowIndex) => {
+            {table.rows.map((row) => {
               const [name, ...cells] = row
               const href = table.links?.[name]
-              const releaseDate = table.releaseDates?.[rowIndex]
-              const isReleased = !releaseDate || now >= Date.parse(releaseDate)
               return (
                 <tr key={name}>
                   <th scope="row">
-                    {isReleased
-                      ? (href ? <a href={href}>{name}</a> : name)
-                      : '-'}
+                    {href ? <a href={href}>{name}</a> : name}
                   </th>
                   {cells.map((cell, index) => (
                     <td key={`${name}-${index}`}>
-                      {isReleased || table.releaseVisibleColumns?.includes(index)
-                        ? table.linkColumns?.includes(index) && !['-', '—'].includes(cell)
-                          ? cell.split(' · ').map((linkLabel) => (
+                      {table.linkColumns?.includes(index) && !['-', '—'].includes(cell)
+                        ? cell.split(' · ').map((linkLabel) => (
                           <a
                             key={linkLabel}
                             href="#"
@@ -57,9 +34,8 @@ export function CourseTable({ table }) {
                           >
                             {linkLabel}
                           </a>
-                          ))
-                          : cell
-                        : '-'}
+                        ))
+                        : cell}
                     </td>
                   ))}
                 </tr>
