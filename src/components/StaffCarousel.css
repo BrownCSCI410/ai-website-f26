@@ -61,8 +61,13 @@
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: var(--accent);
+  background: #ffffff;
   box-shadow: 7px 7px 0 var(--ink);
+}
+
+.staff-photo-frame--chicken {
+  background: transparent;
+  box-shadow: none;
 }
 
 .staff-photo {

@@ -4,7 +4,10 @@ import './StaffCarousel.css'
 
 function StaffPhoto({ member }) {
   return (
-    <div className="staff-photo-frame" key={member.id}>
+    <div
+      className={`staff-photo-frame ${member.id === 'professor' ? 'staff-photo-frame--chicken' : ''}`}
+      key={member.id}
+    >
       {member.image && (
         <img
           className={`staff-photo ${member.id === 'professor' ? 'staff-photo--chicken' : ''}`}
