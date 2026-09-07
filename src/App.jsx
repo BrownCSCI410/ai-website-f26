@@ -21,7 +21,7 @@ function App() {
     isLoaded,
     nearbyDestination,
     registerContentSection,
-    scrollToStart,
+    scrollToGame,
   } = useCourseExperience(sections)
 
   return (
@@ -39,7 +39,7 @@ function App() {
       <SiteHeader
         activeIndex={activeSectionIndex}
         items={navigationItems}
-        onHome={scrollToStart}
+        onPlayChicken={scrollToGame}
         onNavigate={goToSection}
       />
 

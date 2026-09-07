@@ -1,14 +1,14 @@
 import logo from '../assets/logo.png'
 import './SiteHeader.css'
 
-export function SiteHeader({ activeIndex, items, onHome, onNavigate }) {
+export function SiteHeader({ activeIndex, items, onPlayChicken, onNavigate }) {
   return (
     <header className="site-header">
       <button
         className="brand"
         type="button"
-        onClick={onHome}
-        aria-label="CSCI 0410 and 1411, go to course landing"
+        onClick={onPlayChicken}
+        aria-label="CSCI 0410 and 1411, play the chicken game"
       >
         <img className="brand-logo" src={logo} alt="CSCI 0410 and 1411" />
       </button>

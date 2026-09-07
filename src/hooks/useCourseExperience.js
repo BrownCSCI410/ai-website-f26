@@ -37,8 +37,11 @@ export function useCourseExperience(sections) {
     panel.scrollTo({ top: target.offsetTop, behavior: 'smooth' })
   }, [])
 
-  const scrollToStart = useCallback(() => {
-    contentPanelRef.current?.scrollTo({ top: 0, behavior: 'smooth' })
+  const scrollToGame = useCallback(() => {
+    const panel = contentPanelRef.current
+    const game = gameSectionRef.current
+    if (!panel || !game) return
+    panel.scrollTo({ top: game.offsetTop, behavior: 'smooth' })
   }, [])
 
   const registerContentSection = useCallback((index, element) => {
@@ -189,6 +192,6 @@ export function useCourseExperience(sections) {
     isLoaded,
     nearbyDestination,
     registerContentSection,
-    scrollToStart,
+    scrollToGame,
   }
 }
