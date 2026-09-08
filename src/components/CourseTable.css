@@ -88,6 +88,26 @@
   background: #f4c84a;
 }
 
+.course-table--homework {
+  min-width: 760px;
+}
+
+.course-table--homework th:first-child {
+  width: 46%;
+}
+
+.course-table--homework th:nth-child(2),
+.course-table--homework td:nth-child(2),
+.course-table--homework th:nth-child(3),
+.course-table--homework td:nth-child(3) {
+  width: 12%;
+}
+
+.course-table--homework th:nth-child(4),
+.course-table--homework td:nth-child(4) {
+  width: 30%;
+}
+
 .course-table--discussion {
   min-width: 700px;
 }
