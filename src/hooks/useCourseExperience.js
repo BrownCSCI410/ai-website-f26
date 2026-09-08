@@ -23,6 +23,7 @@ export function useCourseExperience(sections) {
   const contentScrollFrameRef = useRef(null)
   const activationTimerRef = useRef(null)
   const activationInProgressRef = useRef(false)
+  const hashInitializedRef = useRef(false)
 
   const activeSection = sections[activeSectionIndex]
   const nearbyDestination = sectionDestinations.find((destination) => (
@@ -30,11 +31,11 @@ export function useCourseExperience(sections) {
     && destination.row === chickenPosition.row
   )) || null
 
-  const scrollToSection = useCallback((index) => {
+  const scrollToSection = useCallback((index, behavior = 'smooth') => {
     const panel = contentPanelRef.current
     const target = contentSectionsRef.current[index]
     if (!panel || !target) return
-    panel.scrollTo({ top: target.offsetTop, behavior: 'smooth' })
+    panel.scrollTo({ top: target.offsetTop, behavior })
   }, [])
 
   const scrollToGame = useCallback(() => {
@@ -143,13 +144,34 @@ export function useCourseExperience(sections) {
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => {
+      const hashId = decodeURIComponent(window.location.hash.slice(1))
+      const hashIndex = sections.findIndex((section) => section.id === hashId)
+
+      if (hashIndex >= 0) {
+        const destination = sectionDestinations[hashIndex]
+        updateChickenPosition({ row: destination.row, tile: destination.tile })
+        setActiveSectionIndex(hashIndex)
+        scrollToSection(hashIndex, 'auto')
+      } else {
+        const firstSection = sections[0]
+        if (firstSection) {
+          window.history.replaceState(
+            null,
+            '',
+            `${window.location.pathname}${window.location.search}#${firstSection.id}`,
+          )
+        }
+        handleContentScroll()
+      }
+
+      hashInitializedRef.current = true
       setIsLoaded(true)
-      handleContentScroll()
     })
     return () => cancelAnimationFrame(frame)
-  }, [handleContentScroll])
+  }, [handleContentScroll, scrollToSection, sections, updateChickenPosition])
 
   useEffect(() => {
+    if (!hashInitializedRef.current) return
     const section = sections[activeSectionIndex]
     if (!section) return
 
