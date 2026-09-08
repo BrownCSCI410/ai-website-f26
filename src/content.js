@@ -16,7 +16,7 @@ export const sections = [
     label: 'About',
     eyebrow: 'CSCI 0410 / CSCI 1411',
     title: 'CSCIO41O',
-    body: 'A broad coverage of core topics in AI as a prelude to students taking more in-depth AI courses later on. Students will study key AI models and machine learning to build socially responsible AI.',
+    body: "A broad coverage of core topics in AI as a prelude to students taking more in-depth AI courses later on. Students will study key AI models and machine learning, en route to building socially responsible AI.",
     meta: ['Prof. Amy Greenwald', 'Brown University', 'Fall 2026'],
     accent: '#f4c84a',
     action: 'Browse lectures',

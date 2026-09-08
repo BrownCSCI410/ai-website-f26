@@ -149,6 +149,19 @@ export function useCourseExperience(sections) {
     return () => cancelAnimationFrame(frame)
   }, [handleContentScroll])
 
+  useEffect(() => {
+    const section = sections[activeSectionIndex]
+    if (!section) return
+
+    const nextHash = `#${section.id}`
+    if (window.location.hash === nextHash) return
+    window.history.replaceState(
+      null,
+      '',
+      `${window.location.pathname}${window.location.search}${nextHash}`,
+    )
+  }, [activeSectionIndex, sections])
+
   useEffect(() => () => {
     if (contentScrollFrameRef.current) cancelAnimationFrame(contentScrollFrameRef.current)
     if (activationTimerRef.current) clearTimeout(activationTimerRef.current)
