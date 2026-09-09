@@ -116,11 +116,11 @@
 }
 
 .resource-links {
-  width: min(100%, 580px);
+  width: min(100%, 640px);
   margin: 42px auto 0;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
 }
 
 .resource-link {
@@ -152,6 +152,14 @@
 
 .resource-link:active {
   transform: translateY(4px);
+}
+
+@media (max-width: 900px) and (min-width: 761px) {
+  .resource-links {
+    width: min(100%, 440px);
+    grid-template-columns: repeat(2, minmax(0, 180px));
+    justify-content: center;
+  }
 }
 
 .content-section--calendar .content-card {
