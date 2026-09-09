@@ -115,19 +115,42 @@
   line-height: 1.6;
 }
 
+.resource-groups {
+  width: min(100%, 640px);
+  margin: 38px auto 0;
+  display: grid;
+  gap: 30px;
+}
+
+.resource-group-title {
+  margin: 0 0 14px;
+  color: #ffffff;
+  font-family: var(--font-pixel);
+  font-size: clamp(12px, 1vw, 15px);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .resource-links {
   width: min(100%, 640px);
-  margin: 42px auto 0;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 220px));
+  justify-content: center;
+  column-gap: 36px;
+  row-gap: 18px;
 }
 
 .resource-link {
-  aspect-ratio: 486 / 291;
+  width: 220px;
+  height: 90px;
+  box-sizing: border-box;
   display: grid;
   place-items: center;
-  padding: 20% 14% 23%;
+  padding: 18px 24px 22px;
   color: #ffffff;
   background: transparent url('../assets/blank.png') center / 100% 100% no-repeat;
   font-family: var(--font-pixel);
@@ -137,29 +160,35 @@
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+  white-space: nowrap;
   transition: filter 120ms ease, transform 120ms ease;
 }
 
-.resource-link:hover,
-.resource-link:focus-visible {
+a.resource-link:hover,
+a.resource-link:focus-visible {
   filter: brightness(1.08);
 }
 
-.resource-link:focus-visible {
+a.resource-link:focus-visible {
   outline: 3px solid var(--ink);
   outline-offset: 8px;
 }
 
-.resource-link:active {
+a.resource-link:active {
   transform: translateY(4px);
 }
 
-@media (max-width: 900px) and (min-width: 761px) {
-  .resource-links {
-    width: min(100%, 440px);
-    grid-template-columns: repeat(2, minmax(0, 180px));
-    justify-content: center;
-  }
+.resource-link--static {
+  cursor: default;
+}
+
+.resource-link-detail {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
 .content-section--calendar .content-card {
@@ -228,9 +257,13 @@
 
   .resource-links {
     width: calc(100% - 16px);
-    margin-top: 34px;
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  .resource-groups {
+    margin-top: 34px;
+    gap: 28px;
   }
 
   .resource-link {

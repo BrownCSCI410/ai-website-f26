@@ -174,12 +174,27 @@ export const sections = [
     label: 'Resources',
     eyebrow: 'Keep these close',
     title: 'Resources',
-    meta: ['Course missive', 'Code + debugging', 'Python guides'],
-    links: [
-      { label: 'Course Missive', href: 'https://hackmd.io/BYFMfsT1Qm-KryUFKOfBYA' },
-      { label: 'EdStem Discussion', href: 'https://edstem.org/us/courses/105523/discussion' },
-      { label: 'Testing Guide', href: 'https://docs.google.com/document/d/1otaPyhze73Qv6GMfuddAoTQJg10a5Fj8ICOaEraqBtA/edit?tab=t.0#heading=h.60udf8bnil5l' },
-      { label: 'Python Set-up', href: 'https://hackmd.io/@cs410/BJvhqHXuR' },
+    resourceGroups: [
+      {
+        title: 'Course Policies',
+        items: [
+          { label: 'Course Missive', href: 'https://hackmd.io/BYFMfsT1Qm-KryUFKOfBYA' },
+        ],
+      },
+      {
+        title: 'Python and HW Guides',
+        items: [
+          { label: 'Testing Guide', href: 'https://docs.google.com/document/d/1otaPyhze73Qv6GMfuddAoTQJg10a5Fj8ICOaEraqBtA/edit?tab=t.0#heading=h.60udf8bnil5l' },
+          { label: 'Python Set Up', href: 'https://hackmd.io/@cs410/BJvhqHXuR' },
+        ],
+      },
+      {
+        title: 'General Resources',
+        items: [
+          { label: 'EdStem', href: 'https://edstem.org/us/courses/105523/discussion' },
+          { label: 'Gradescope', detail: 'Code: YG7YZZ' },
+        ],
+      },
     ],
     accent: '#78d8c4',
     action: 'Back to course intro',

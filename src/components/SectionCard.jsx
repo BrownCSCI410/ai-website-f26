@@ -39,6 +39,35 @@ export function SectionCard({ section }) {
                 ))}
               </nav>
             )}
+            {section.resourceGroups && (
+              <div className="resource-groups">
+                {section.resourceGroups.map((group) => (
+                  <section className="resource-group" key={group.title}>
+                    <h2 className="resource-group-title">{group.title}</h2>
+                    <div className="resource-links">
+                      {group.items.map((item) => (
+                        item.href ? (
+                          <a
+                            className="resource-link"
+                            href={item.href}
+                            key={item.label}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {item.label}
+                          </a>
+                        ) : (
+                          <div className="resource-link resource-link--static" key={item.label}>
+                            <span>{item.label}</span>
+                            <span className="resource-link-detail">{item.detail}</span>
+                          </div>
+                        )
+                      ))}
+                    </div>
+                  </section>
+                ))}
+              </div>
+            )}
             {section.embedUrl && (
               <div className="calendar-embed">
                 <iframe
