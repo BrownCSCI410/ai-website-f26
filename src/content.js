@@ -90,6 +90,9 @@ export const sections = [
     table: {
       variant: 'homework',
       columns: ['Homework', 'Out', 'Due', 'Code Review Sign Up'],
+      links: {
+        'Homework 1: Uninformed Search': 'https://hackmd.io/MaT2akr7Tua57kitU-Chxw',
+      },
       rows: [
         ['Homework 1: Uninformed Search', '9/10', '9/20', '-'],
         ['Homework 2: Informed Search', '9/15', '9/20', '-'],
