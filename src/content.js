@@ -89,8 +89,10 @@ export const sections = [
     title: 'Homework',
     table: {
       variant: 'homework',
-      caption: 'Homework is released at 2:00 PM ET and is due at 11:59 PM ET.',
       columns: ['Homework', 'Out', 'Due', 'Code Review Sign Up'],
+      links: {
+        'Homework 1: Uninformed Search': 'https://hackmd.io/MaT2akr7Tua57kitU-Chxw',
+      },
       rows: [
         ['Homework 1: Uninformed Search', '9/10', '9/20', '-'],
         ['Homework 2: Informed Search', '9/15', '9/20', '-'],

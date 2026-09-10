@@ -58,7 +58,7 @@ function renderCell(cell, table, columnIndex) {
 export function CourseTable({ table }) {
   return (
     <>
-      <p className="course-table-caption">{table.caption}</p>
+      {table.caption && <p className="course-table-caption">{table.caption}</p>}
       <div className="course-table-region">
         <table className={`course-table ${table.variant ? `course-table--${table.variant}` : ''}`}>
           <thead>
