@@ -1,4 +1,5 @@
 .course-table-region {
+  margin-top: 24px;
   overflow: visible;
   border: 1px solid rgba(23, 33, 39, 0.45);
   background: rgba(255, 255, 255, 0.3);
