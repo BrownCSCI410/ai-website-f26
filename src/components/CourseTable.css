@@ -62,26 +62,26 @@
 }
 
 .course-table--lectures {
-  min-width: 900px;
+  min-width: 760px;
 }
 
 .course-table--lectures th:first-child {
-  width: 43%;
+  width: 13%;
 }
 
 .course-table--lectures th:nth-child(2),
 .course-table--lectures td:nth-child(2) {
-  width: 13%;
+  width: 27%;
 }
 
 .course-table--lectures th:nth-child(3),
 .course-table--lectures td:nth-child(3) {
-  width: 20%;
+  width: 32%;
 }
 
 .course-table--lectures th:nth-child(4),
 .course-table--lectures td:nth-child(4) {
-  width: 24%;
+  width: 28%;
 }
 
 .course-table--lectures thead th,
@@ -167,5 +167,24 @@
   .course-table th,
   .course-table td {
     padding: 9px 8px;
+  }
+
+  .course-table--lectures {
+    min-width: 680px;
+  }
+
+  .course-table--lectures th:nth-child(2),
+  .course-table--lectures td:nth-child(2) {
+    width: 25%;
+  }
+
+  .course-table--lectures th:nth-child(3),
+  .course-table--lectures td:nth-child(3) {
+    width: 34%;
+  }
+
+  .course-table--lectures th:nth-child(4),
+  .course-table--lectures td:nth-child(4) {
+    width: 28%;
   }
 }
