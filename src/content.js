@@ -94,7 +94,7 @@ export const sections = [
       variant: 'homework',
       columns: ['Homework', 'Out', 'Due', 'Code Review Sign Up'],
       links: {
-        'Homework 1: Uninformed Search': 'https://hackmd.io/MaT2akr7Tua57kitU-Chxw',
+        'Homework 1: Uninformed Search': 'https://hackmd.io/@cs410/SkUv4EDuMx',
       },
       rows: [
         ['Homework 1: Uninformed Search', '9/10', '9/20', '-'],
