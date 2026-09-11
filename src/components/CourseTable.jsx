@@ -23,14 +23,18 @@ function ResourceLinks({ resources }) {
 
   if (visibleResources.length === 0) return '-'
   return visibleResources.map((resource) => (
-    <a
-      key={`${resource.label}-${resource.href}`}
-      href={resource.href}
-      target="_blank"
-      rel="noreferrer"
-    >
-      {resource.label}
-    </a>
+    resource.href ? (
+      <a
+        key={`${resource.label}-${resource.href}`}
+        href={resource.href}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {resource.label}
+      </a>
+    ) : (
+      <span key={resource.label}>{resource.label}</span>
+    )
   ))
 }
 

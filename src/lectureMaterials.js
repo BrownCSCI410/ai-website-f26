@@ -35,13 +35,17 @@ const materialsByDate = Object.entries(lectureFiles).reduce((materials, [path, h
   return materials
 }, {})
 
-export function lectureMaterialsForDate(monthDay) {
+export function lectureMaterialsForDate(monthDay, type) {
   const [month, day] = monthDay.split('/').map(Number)
   const date = [courseYear, month, day]
     .map((part, index) => (index === 0 ? part : String(part).padStart(2, '0')))
     .join('-')
 
-  return [...(materialsByDate[date] || [])].sort(
+  const materials = type
+    ? (materialsByDate[date] || []).filter((resource) => resource.type === type)
+    : materialsByDate[date] || []
+
+  return [...materials].sort(
     (first, second) => materialOrder.indexOf(first.type) - materialOrder.indexOf(second.type),
   )
 }

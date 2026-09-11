@@ -75,8 +75,11 @@ export const sections = [
       ].map(([lecture, date, readings]) => [
         date,
         lecture,
-        lectureMaterialsForDate(date),
-        readings,
+        lectureMaterialsForDate(date, 'notes'),
+        [
+          ...lectureMaterialsForDate(date, 'slides'),
+          ...(readings === '-' ? [] : [{ label: readings }]),
+        ],
       ]),
     },
     accent: '#7dc8ff',
