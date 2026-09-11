@@ -66,22 +66,22 @@
 }
 
 .course-table--lectures th:first-child {
-  width: 13%;
+  width: 10%;
 }
 
 .course-table--lectures th:nth-child(2),
 .course-table--lectures td:nth-child(2) {
-  width: 27%;
+  width: 40%;
 }
 
 .course-table--lectures th:nth-child(3),
 .course-table--lectures td:nth-child(3) {
-  width: 32%;
+  width: 25%;
 }
 
 .course-table--lectures th:nth-child(4),
 .course-table--lectures td:nth-child(4) {
-  width: 28%;
+  width: 25%;
 }
 
 .course-table--lectures thead th,
