@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Fragment } from 'react'
 import './CourseTable.css'
 
 function ResourceLinks({ resources }) {
@@ -22,19 +23,21 @@ function ResourceLinks({ resources }) {
   }, [now, resources])
 
   if (visibleResources.length === 0) return '-'
-  return visibleResources.map((resource) => (
-    resource.href ? (
-      <a
-        key={`${resource.label}-${resource.href}`}
-        href={resource.href}
-        target="_blank"
-        rel="noreferrer"
-      >
-        {resource.label}
-      </a>
-    ) : (
-      <span key={resource.label}>{resource.label}</span>
-    )
+  return visibleResources.map((resource, index) => (
+    <Fragment key={`${resource.label}-${resource.href || index}`}>
+      {resource.href ? (
+        <a
+          href={resource.href}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {resource.label}
+        </a>
+      ) : (
+        <span>{resource.label}</span>
+      )}
+      {index < visibleResources.length - 1 ? '; ' : ''}
+    </Fragment>
   ))
 }
 

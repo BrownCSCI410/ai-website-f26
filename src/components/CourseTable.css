@@ -147,7 +147,6 @@
 }
 
 .course-table tbody td a {
-  margin-right: 18px;
   color: var(--ink);
   text-decoration: underline;
   text-decoration-color: var(--ink);

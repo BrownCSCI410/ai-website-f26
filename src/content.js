@@ -72,15 +72,15 @@ export const sections = [
         ['Guest Lecture', '11/30', '-'],
         ['Guest Lecture', '12/2', '-'],
         ['Guest Lecture', '12/4', '-'],
-      ].map(([lecture, date, readings]) => [
-        date,
-        lecture,
-        lectureMaterialsForDate(date, 'notes'),
-        [
-          ...lectureMaterialsForDate(date, 'slides'),
-          ...(readings === '-' ? [] : [{ label: readings }]),
-        ],
-      ]),
+      ].map(([lecture, date]) => {
+        const materials = lectureMaterialsForDate(date)
+        return [
+          date,
+          lecture,
+          materials.notes,
+          materials.resources,
+        ]
+      }),
     },
     accent: '#7dc8ff',
     action: 'View assignments',
