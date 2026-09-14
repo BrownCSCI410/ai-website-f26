@@ -129,7 +129,9 @@ export const sections = [
       variant: 'discussion',
       columns: ['Topic', 'Materials', 'Date'],
       rows: [
-        ['SRC: AI Policy', '-', '9/14 – 9/18'],
+        ['SRC: AI Policy', [
+          { label: 'Slides', href: 'https://docs.google.com/presentation/d/1j1WQ3c1AQTwVDyozmuDwagp1jJgNCSspLbrULYe1Skw/edit?slide=id.g392a6d0ae78_0_0#slide=id.g392a6d0ae78_0_0' },
+        ], '9/14 – 9/18'],
         ['Conceptual: HW1 and HW2', '-', '9/21 – 9/25'],
         ['SRC: Automated Decision-Making', '-', '9/28 – 10/2'],
         ['Conceptual: HW3 and HW4', '-', '10/5 – 10/9'],
