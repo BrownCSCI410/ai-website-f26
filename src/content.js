@@ -185,7 +185,7 @@ export const sections = [
       {
         title: 'Course Policies',
         items: [
-          { label: 'Course Missive', href: 'https://hackmd.io/BYFMfsT1Qm-KryUFKOfBYA' },
+          { label: 'Course Missive', href: 'https://hackmd.io/@cs410/SJkhYLI_fg' },
         ],
       },
       {
