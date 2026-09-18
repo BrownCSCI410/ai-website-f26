@@ -23,7 +23,7 @@ const readingsByDate = {
   '9/11': 'Chapter 2, R&N',
   '9/14': 'Chapter 3, R&N',
   '9/16': 'Chapter 3, R&N',
-  '9/18': 'Chapter 3, R&N',
+  '9/18': 'Chapter 6, R&N',
 }
 
 const materialsByDate = Object.entries(lectureFiles).reduce((materials, [path, href]) => {
