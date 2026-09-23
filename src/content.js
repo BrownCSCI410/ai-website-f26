@@ -96,6 +96,7 @@ export const sections = [
       links: {
         'Homework 1: Uninformed Search': 'https://hackmd.io/@cs410/SkUv4EDuMx',
         'Homework 2: Informed Search': 'https://hackmd.io/@cs410/BJlyKEidMx',
+        'Homework 3: Adversarial Search': 'https://hackmd.io/@cs410/BkrkfBDufx',
       },
       rows: [
         ['Homework 1: Uninformed Search', '9/10', '9/20', [
