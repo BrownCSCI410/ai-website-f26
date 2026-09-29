@@ -105,7 +105,9 @@ export const sections = [
         ['Homework 2: Informed Search', '9/15', '9/20', [
           { label: 'Sign up sheet (same as HW1)', href: 'https://docs.google.com/spreadsheets/d/1yRQ7LFGFHjIO5zOBgWR0DFeMewKpJ5fQsLQQNYnrDU8/edit?gid=1763574605#gid=1763574605' },
         ]],
-        ['Homework 3: Adversarial Search', '9/23', '9/28', '-'],
+        ['Homework 3: Adversarial Search', '9/23', '9/28', [
+          { label: 'Sign up sheet', href: 'https://docs.google.com/spreadsheets/d/1VzjQ6Yh4kBIsFnQgTwHn94Z8SkiwyHycIL5NwUZW3Hc/edit?usp=sharing' },
+        ]],
         ['Homework 4: SAT', '9/29', '10/5', '-'],
         ['Homework 5: Constrained Optimization', '10/13', '10/19', '-'],
         ['Homework 6: Linear Regression', '10/20', '10/26', '-'],
