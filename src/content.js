@@ -97,6 +97,7 @@ export const sections = [
         'Homework 1: Uninformed Search': 'https://hackmd.io/@cs410/SkUv4EDuMx',
         'Homework 2: Informed Search': 'https://hackmd.io/@cs410/BJlyKEidMx',
         'Homework 3: Adversarial Search': 'https://hackmd.io/@cs410/BkrkfBDufx',
+        'Homework 4: SAT': 'https://hackmd.io/@cs410/H1ir0BnOGl',
       },
       rows: [
         ['Homework 1: Uninformed Search', '9/10', '9/20', [
