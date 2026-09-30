@@ -109,7 +109,7 @@ export const sections = [
         ['Homework 3: Adversarial Search', '9/23', '9/28', [
           { label: 'Sign up sheet', href: 'https://docs.google.com/spreadsheets/d/1VzjQ6Yh4kBIsFnQgTwHn94Z8SkiwyHycIL5NwUZW3Hc/edit?usp=sharing' },
         ]],
-        ['Homework 4: SAT', '9/29', '10/5', '-'],
+        ['Homework 4: SAT', '9/29', '10/6', '-'],
         ['Homework 5: Constrained Optimization', '10/13', '10/19', '-'],
         ['Homework 6: Linear Regression', '10/20', '10/26', '-'],
         ['Homework 7: Neural Networks', '10/27', '11/2', '-'],
