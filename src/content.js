@@ -139,7 +139,9 @@ export const sections = [
         ['SRC: AI Policy', [
           { label: 'Slides', href: 'https://docs.google.com/presentation/d/1j1WQ3c1AQTwVDyozmuDwagp1jJgNCSspLbrULYe1Skw/edit?slide=id.g392a6d0ae78_0_5#slide=id.g392a6d0ae78_0_5' },
         ], '9/14 – 9/18'],
-        ['Conceptual: HW1 and HW2', '-', '9/21 – 9/25'],
+        ['Conceptual: HW1 and HW2', [
+          { label: 'Slides', href: 'https://docs.google.com/presentation/d/1lwDC9P7wG3CRIWRV24FNicNuf39lNwfPodTBWtyg-4s/edit?usp=sharing' }, 
+        ], '9/21 – 9/25'],
         ['SRC: Automated Decision-Making', '-', '9/28 – 10/2'],
         ['Conceptual: HW3 and HW4', '-', '10/5 – 10/9'],
         ['SRC: Acceleration and Deceleration', '-', '10/12 – 10/16'],
