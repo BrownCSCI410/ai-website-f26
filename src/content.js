@@ -145,7 +145,9 @@ export const sections = [
           { label: 'Slides', href: 'https://docs.google.com/presentation/d/1lwDC9P7wG3CRIWRV24FNicNuf39lNwfPodTBWtyg-4s/edit?usp=sharing' }, 
           { label: 'Solutions', href: 'https://docs.google.com/document/d/1ZVsrv-JN2FbDlu_BLuPyHIXNsuij0Ge3k8B4zBTnIx0/edit?usp=sharing '},
         ], '9/21 – 9/25'],
-        ['SRC: Automated Decision-Making', '-', '9/28 – 10/2'],
+        ['SRC: Automated Decision-Making', [
+          { label: 'Slides', href: 'https://docs.google.com/presentation/d/1SjSLDkv9_z2FS7AG8lUou3MzaEwloSHvXHuPIEVBm1g/edit?usp=sharing' },
+        ], '9/28 – 10/2'],
         ['Conceptual: HW3 and HW4', '-', '10/5 – 10/9'],
         ['SRC: Acceleration and Deceleration', '-', '10/12 – 10/16'],
         ['Conceptual: HW5 and HW6', '-', '10/26 – 10/30'],
