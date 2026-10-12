@@ -140,18 +140,18 @@ export const sections = [
       rows: [
         ['SRC: AI Policy', [
           { label: 'Slides', href: 'https://docs.google.com/presentation/d/1j1WQ3c1AQTwVDyozmuDwagp1jJgNCSspLbrULYe1Skw/edit?slide=id.g392a6d0ae78_0_5#slide=id.g392a6d0ae78_0_5' },
-        ], '9/14 – 9/18'],
+        ], '9/21 – 9/25'],
         ['Conceptual: HW1 and HW2', [
           { label: 'Slides', href: 'https://docs.google.com/presentation/d/1lwDC9P7wG3CRIWRV24FNicNuf39lNwfPodTBWtyg-4s/edit?usp=sharing' }, 
           { label: 'Solutions', href: 'https://docs.google.com/document/d/1ZVsrv-JN2FbDlu_BLuPyHIXNsuij0Ge3k8B4zBTnIx0/edit?usp=sharing '},
-        ], '9/21 – 9/25'],
+        ], '9/28 – 10/2'],
         ['SRC: Automated Decision-Making', [
           { label: 'Slides', href: 'https://docs.google.com/presentation/d/1SjSLDkv9_z2FS7AG8lUou3MzaEwloSHvXHuPIEVBm1g/edit?usp=sharing' },
-        ], '9/28 – 10/2'],
+        ], '10/5 – 10/9'],
         ['Conceptual: HW3 and HW4', [
           { label: 'Slides', href: 'https://docs.google.com/presentation/d/1vdnEZR2RUF2nQFEH67f4xFWMDauHAQVFXLdPJJUYZYc/edit?usp=sharing' },
-        ], '10/5 – 10/9'],
-        ['SRC: Acceleration and Deceleration', '-', '10/12 – 10/16'],
+        ], '10/12 – 10/16'],
+        ['SRC: Acceleration and Deceleration', '-', '10/19 – 10/23'],
         ['Conceptual: HW5 and HW6', '-', '10/26 – 10/30'],
         ['Conceptual: HW7', '-', '11/2 – 11/6'],
         ['SRC: Bias in Data', '-', '11/9 – 11/13'],
