@@ -150,6 +150,7 @@ export const sections = [
         ], '10/5 – 10/9'],
         ['Conceptual: HW3 and HW4', [
           { label: 'Slides', href: 'https://docs.google.com/presentation/d/1vdnEZR2RUF2nQFEH67f4xFWMDauHAQVFXLdPJJUYZYc/edit?usp=sharing' },
+          { label: 'Solutions', href: 'https://docs.google.com/document/d/1EG3bSdCcprBhRKcYUDYaPaDUqOqkGPhjL8L14spTFdk/edit?usp=sharing' },
         ], '10/12 – 10/16'],
         ['SRC: Acceleration and Deceleration', '-', '10/19 – 10/23'],
         ['Conceptual: HW5 and HW6', '-', '10/26 – 10/30'],
