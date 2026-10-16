@@ -10,6 +10,9 @@ const materialLabels = {
   slides: 'Slides',
 }
 
+const temporaryNotesStart = '2026-09-30'
+const temporaryNotesEnd = '2026-10-16'
+
 // To move a PDF between table columns, change its value to 'notes' or 'resources'.
 // Files not listed here use their filename type: notes -> Notes, slides -> Resources.
 const fileColumns = {
@@ -45,7 +48,9 @@ const materialsByDate = Object.entries(lectureFiles).reduce((materials, [path, h
   const easternOffset = date < `${courseYear}-11-01` ? '-04:00' : '-05:00'
   const resource = {
     href,
-    label: materialLabels[type],
+    label: type === 'notes' && date >= temporaryNotesStart && date <= temporaryNotesEnd
+      ? "Notes (Fall '25)"
+      : materialLabels[type],
     releaseAt: `${date}T00:00:00${easternOffset}`,
     column,
   }
