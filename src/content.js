@@ -113,7 +113,9 @@ export const sections = [
         ['Homework 4: SAT', '9/29', '10/6', [
           { label: 'Sign up sheet', href: 'https://docs.google.com/spreadsheets/d/1dgGZPnIGIECHIIiPK4DSC88KPKtJdY7BthS4ahsfiEA/edit?usp=sharing' },
         ]],
-        ['Homework 5: Constrained Optimization', '10/15', '10/20', '-'],
+        ['Homework 5: Constrained Optimization', '10/15', '10/20', [
+          { label: 'Sign up sheet', href: 'https://docs.google.com/spreadsheets/d/1OUthU1hLgARyWykRacM17wyyinU2wrrltfqQMB4bhvE/edit?usp=sharing' },
+        ]],
         ['Homework 6: Linear Regression', '10/21', '10/26', '-'],
         ['Homework 7: Neural Networks', '-', '-', '-'],
         ['Homework 8: Reinforcement Learning', '-', '-', '-'],
