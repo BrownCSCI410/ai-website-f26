@@ -114,7 +114,7 @@ export const sections = [
           { label: 'Sign up sheet', href: 'https://docs.google.com/spreadsheets/d/1dgGZPnIGIECHIIiPK4DSC88KPKtJdY7BthS4ahsfiEA/edit?usp=sharing' },
         ]],
         ['Homework 5: Constrained Optimization', '10/15', '10/20', '-'],
-        ['Homework 6: Linear Regression', '-', '-', '-'],
+        ['Homework 6: Linear Regression', '10/21', '10/26', '-'],
         ['Homework 7: Neural Networks', '-', '-', '-'],
         ['Homework 8: Reinforcement Learning', '-', '-', '-'],
         ['Homework 9: Bayesian Networks', '-', '-', '-'],
