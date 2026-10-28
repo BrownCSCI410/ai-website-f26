@@ -100,6 +100,7 @@ export const sections = [
         'Homework 4: SAT': 'https://hackmd.io/@cs410/H1ir0BnOGl',
         'Homework 5: Constrained Optimization': 'https://hackmd.io/@cs410/Hy8COCNtMx',
         'Homework 6: Linear Regression': 'https://hackmd.io/@cs410/rytdSdu_Gx',
+        'Homework 7: Neural Networks': 'https://hackmd.io/@cs410/rya8SnKdfx',
       },
       rows: [
         ['Homework 1: Uninformed Search', '9/10', '9/20', [
