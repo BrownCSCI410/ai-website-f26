@@ -118,7 +118,9 @@ export const sections = [
         ['Homework 5: Constrained Optimization', '10/15', '10/20', [
           { label: 'Sign up sheet', href: 'https://docs.google.com/spreadsheets/d/1OUthU1hLgARyWykRacM17wyyinU2wrrltfqQMB4bhvE/edit?usp=sharing' },
         ]],
-        ['Homework 6: Linear Regression', '10/21', '10/26', '-'],
+        ['Homework 6: Linear Regression', '10/21', '10/26', [
+          { label: 'Sign up sheet', href: 'https://docs.google.com/spreadsheets/d/1uODR46eR24CAAfLjDWoDRy-nSJkmR85DGM3d5tYoIsg/edit?usp=sharing' },
+        ]],
         ['Homework 7: Neural Networks', '10/27', '11/2', '-'],
         ['Homework 8: Reinforcement Learning', '-', '-', '-'],
         ['Homework 9: Bayesian Networks', '-', '-', '-'],
