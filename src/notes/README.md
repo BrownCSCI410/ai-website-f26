@@ -5,13 +5,23 @@ Upload PDF files to this folder using one of these exact filename formats:
 - `YYYY-MM-DD-notes.pdf`
 - `YYYY-MM-DD-slides.pdf`
 
+To add multiple files of the same type for one lecture, append a number starting
+with `-2`:
+
+- `YYYY-MM-DD-notes-2.pdf`
+- `YYYY-MM-DD-notes-3.pdf`
+- `YYYY-MM-DD-slides-2.pdf`
+
 For example, the materials for the September 9, 2026 lecture would be:
 
 - `2026-09-09-notes.pdf`
+- `2026-09-09-notes-2.pdf` (optional second notes PDF)
 - `2026-09-09-slides.pdf` (only when that lecture has slides)
 
 The lecture table finds the files automatically. Links appear at midnight Eastern
 Time on the date in the filename, so no change to `content.js` is needed.
+Multiple files appear together in the same table cell as `Notes Part I`,
+`Notes Part II`, and so on. A single file remains labeled `Notes`.
 
 Notes PDFs normally appear in the Notes column; slides PDFs appear in Resources.
 To move one link, open `src/lectureMaterials.js` and change that filename's value

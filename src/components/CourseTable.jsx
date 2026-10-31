@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Fragment } from 'react'
 import './CourseTable.css'
 
-function ResourceLinks({ resources }) {
+function ResourceLinks({ resources, stacked = false }) {
   const [now, setNow] = useState(() => Date.now())
   const visibleResources = resources.filter((resource) => (
     !resource.releaseAt || now >= Date.parse(resource.releaseAt)
@@ -23,27 +23,34 @@ function ResourceLinks({ resources }) {
   }, [now, resources])
 
   if (visibleResources.length === 0) return '-'
-  return visibleResources.map((resource, index) => (
-    <Fragment key={`${resource.label}-${resource.href || index}`}>
-      {resource.href ? (
-        <a
-          href={resource.href}
-          target="_blank"
-          rel="noreferrer"
-        >
-          {resource.label}
-        </a>
-      ) : (
-        <span>{resource.label}</span>
-      )}
-      {index < visibleResources.length - 1 ? '; ' : ''}
-    </Fragment>
-  ))
+  return (
+    <span className={stacked ? 'course-resource-links course-resource-links--stacked' : 'course-resource-links'}>
+      {visibleResources.map((resource, index) => (
+        <Fragment key={`${resource.label}-${resource.href || index}`}>
+          <span className="course-resource-link-item">
+            {resource.href ? (
+              <a
+                href={resource.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {resource.label}
+              </a>
+            ) : (
+              <span>{resource.label}</span>
+            )}
+          </span>
+          {!stacked && index < visibleResources.length - 1 ? '; ' : ''}
+        </Fragment>
+      ))}
+    </span>
+  )
 }
 
 function renderCell(cell, table, columnIndex) {
   if (Array.isArray(cell)) {
-    return <ResourceLinks resources={cell} />
+    const stackLinks = table.variant === 'lectures' && columnIndex === 1
+    return <ResourceLinks resources={cell} stacked={stackLinks} />
   }
 
   if (table.linkColumns?.includes(columnIndex) && !['-', '—'].includes(cell)) {
