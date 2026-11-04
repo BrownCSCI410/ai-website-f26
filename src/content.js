@@ -164,7 +164,10 @@ export const sections = [
         ['SRC: Acceleration and Deceleration', [
           { label: 'Slides', href: 'https://docs.google.com/presentation/d/1LhQAbvPo0yIzfaMqIOg4Q79BO0R5B5SIh2bTFZ5KEc4/edit?usp=sharing' },
         ], '10/19 – 10/23'],
-        ['Conceptual: HW5 and HW6', '-', '10/26 – 10/30'],
+        ['Conceptual: HW5 and HW6', [
+          { label: 'Slides', href: 'https://docs.google.com/presentation/d/1mfq2JQBsMiBed9A8mGL0UaDzAnygNggiVJzyybaFUPA/edit?usp=sharing'},
+          { label: 'Solutions', href: 'https://docs.google.com/document/d/1BgEtRuIXBvGBvbIs73TQ1oXpjmp-7T-c_9WwWLhAYzw/edit?usp=sharing'},
+        ], '10/26 – 10/30'],
         ['Conceptual: HW7', '-', '11/2 – 11/6'],
         ['SRC: Bias in Data', '-', '11/9 – 11/13'],
         ['SRC: Hands-on Workshop', '-', '11/16 – 11/20'],
