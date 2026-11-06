@@ -57,7 +57,7 @@ export const sections = [
         ['Logistic Regression', '10/26', '-'],
         ['Simple Perceptrons', '10/28', '-'],
         ['Multilayer Perceptrons', '10/30', '-'],
-        ['Markov Reward Processes', '11/2', '-'],
+        ['Markov Processes', '11/2', '-'],
         ['Dynamic Programming', '11/4', '-'],
         ['Reinforcement Learning', '11/6', '-'],
         ['Midterm 2', '11/9', '-'],
