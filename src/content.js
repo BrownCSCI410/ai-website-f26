@@ -168,7 +168,10 @@ export const sections = [
           { label: 'Slides', href: 'https://docs.google.com/presentation/d/1mfq2JQBsMiBed9A8mGL0UaDzAnygNggiVJzyybaFUPA/edit?usp=sharing'},
           { label: 'Solutions', href: 'https://docs.google.com/document/d/1BgEtRuIXBvGBvbIs73TQ1oXpjmp-7T-c_9WwWLhAYzw/edit?usp=sharing'},
         ], '10/26 – 10/30'],
-        ['Conceptual: HW7', '-', '11/2 – 11/6'],
+        ['Conceptual: HW7', [
+          { label: 'Slides', href: 'https://docs.google.com/presentation/d/1wurL2AlC31BDbOfnInG0sIhbZxPfTUlbWDjJCHFLe8o/edit?usp=sharing' },
+          { label: 'Solutions', href: 'https://docs.google.com/document/d/1VW1I5rZLKXUGQEidYOTWeHktPAq92X2klO9uFHLjCZY/edit?usp=sharing' },
+        ], '11/2 – 11/6'],
         ['SRC: Bias in Data', '-', '11/9 – 11/13'],
         ['SRC: Hands-on Workshop', '-', '11/16 – 11/20'],
         ['Conceptual: HW8 and HW9', '-', '11/30 – 12/4'],
