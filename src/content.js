@@ -124,9 +124,8 @@ export const sections = [
         ['Homework 7: Neural Networks', '10/27', '11/3', [
           { label: 'Sign up sheet', href: 'https://docs.google.com/spreadsheets/d/1QKklBgV0F18-F4Wer_J47YHB09wsNc5Ae-DFCprooAM/edit?usp=sharing' },
         ]],
-        ['Homework 8: Reinforcement Learning', '-', '-', '-'],
-        ['Homework 9: Bayesian Networks', '-', '-', '-'],
-        ['Homework 10: LLMs and PDDL (Optional)', '-', '-', '-'],
+        ['Homework 8: Reinforcement Learning', '11/10', '11/16', '-'],
+        ['Homework 9: PDDL', '-', '-', '-'],
         ['Final Project: Part 1', '-', '-', '-'],
         ['Final Project: Part 2', '-', '-', '-'],
         ['Final Project: Part 3', '-', '-', '-'],
