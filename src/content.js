@@ -130,7 +130,7 @@ export const sections = [
           { label: 'Sign up sheet', href: 'https://docs.google.com/spreadsheets/d/1QJsCl3MxIeqAS1x6Tl77ZTE23wHKQdNVStlPAQALrY8/edit?usp=sharing' },
         ]],
         ['Homework 9: PDDL', '-', '-', '-'],
-        ['Final Project: Part 1', '-', '-', '-'],
+        ['Final Project: Part 1', '11/18', '-', '-'],
         ['Final Project: Part 2', '-', '-', '-'],
         ['Final Project: Part 3', '-', '-', '-'],
       ],
