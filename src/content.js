@@ -129,9 +129,9 @@ export const sections = [
         ['Homework 8: Reinforcement Learning', '11/10', '11/16', [
           { label: 'Sign up sheet', href: 'https://docs.google.com/spreadsheets/d/1QJsCl3MxIeqAS1x6Tl77ZTE23wHKQdNVStlPAQALrY8/edit?usp=sharing' },
         ]],
-        ['Homework 9: Planning and Game Playing with LLMs', '12/1', '127', '-'],
         ['Final Project: Part 1', '11/18', '11/24', '-'],
         ['Final Project: Part 2', '11/20', '12/6', '-'],
+        ['Homework 9: Planning and Game Playing with LLMs', '12/1', '127', '-'],
         ['Final Project: Part 3', '12/7', '12/14', '-'],
       ],
     },
